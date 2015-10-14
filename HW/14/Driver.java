@@ -15,7 +15,6 @@ public class Driver {
 
 	//build Objects from blueprint specified by class Coin
 
-	/*===================TOP==========================
 	//test default constructor
 	Coin mine = new Coin();
 
@@ -42,7 +41,7 @@ public class Driver {
 	    System.out.println( "Matchee matchee!" );
 	else
 	    System.out.println( "No match. Firestarter you can not be." );
-	    ====================BOTTOM======================*/
+	 
 
     }//end main
 

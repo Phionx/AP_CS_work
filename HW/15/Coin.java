@@ -120,10 +120,13 @@ return value;
       precond:  s is "heads" or "tails", 0.0 <= d <= 1.0
       postcond: Coin's attribs reset to starting vals
       =============================*/
-    public void reset( String s, double d ) { 
+    public void reset( ) { 
 	//your implementation here
-    	upFace = s;
-	bias = d;
+    	//upFace = s;
+	//bias = d;
+	headsCtr = 0;
+	tailsCtr = 0;
+	flipCtr = 0;
 	}
 
 
