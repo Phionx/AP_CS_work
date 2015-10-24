@@ -1,0 +1,29 @@
+public class hw {
+public static String commafyR(int a) {
+Integer temp = a;
+if(a < 1000){
+return temp.toString();
+}
+temp = a%1000;
+return commafyR(int a/1000) + "," + temp.toString();
+}
+
+
+public static String commafyF(int a){
+String ans = "";
+Integer temp = a;
+if (a< 1000){
+return a.toString();
+}
+while(a>=1000){
+ans = "," + (temp%1000).toString() + ans;
+temp = temp/1000;
+}
+return temp.toString() + ans;
+}
+
+public static void main(String [] args){
+System.out.println(commafyR(12304));
+System.out.println(commafyF(12314));
+}
+}

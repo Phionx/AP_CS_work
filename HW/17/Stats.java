@@ -99,9 +99,8 @@ public class Stats{
     
     //  public static int gcdER( int a, int b ) --- employs Euclid’s algorithm recursively
     public static int gcdER(int a, int b){
-	if(a == b || a == 0 || b == 0) {
-	    return max(a,b);}//the output when a and b are equal
-	return gcdER(a%b, b%a);//else, keep modulating until a==b(in above) and return it
+	if(b == 0)  return a;			//the output when a and b are equal
+	return gcdER(b, b%a);			//else, keep modulating until a==b(in above) and return it
     }
 
     /*
