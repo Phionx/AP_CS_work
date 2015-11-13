@@ -12,8 +12,7 @@ public class BodyApp {
 	System.out.println("new body:");
 	System.out.println(boo);
     
-	/* =====================================
-
+	
         // prompt user to modify hair
 	System.out.print("Modifying hair: ");
 	hair = Keyboard.readString();
@@ -41,6 +40,8 @@ public class BodyApp {
 	dude.setMouth(mouth);
 	System.out.println("dude:");
 	System.out.println(dude);
+ /* =====================================
+
 
 	==================================*/
     }
