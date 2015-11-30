@@ -8,4 +8,3 @@ HW38--Keep Guessing
 public class GuessNumber {
 
 }
-
