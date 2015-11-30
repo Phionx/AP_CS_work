@@ -212,7 +212,7 @@ public class Concentration {
 				System.out.println("\n\nGOOD JOB! You got a match! :)\n\n");
 				totalRightFlips += 1;
 				totalFlips += 1;
-				delay(2000);
+				delay(1500);
 			}
 			else {
 				System.out.println("\nSorry you didn't get a match, but commit these cards to your memory ;), so that you have a better chance next time!");
@@ -220,7 +220,7 @@ public class Concentration {
 				totalFlips += 1;
 				_board[Row_1][Col_1].flip();
 				_board[Row_2][Col_2].flip();
-				delay(2000);
+				delay(1500);
 				
 			}
 			clear();
