@@ -15,6 +15,8 @@ private static String NowDate;
    
 public static void main(String [] args)
    {
+	boolean existance = true; //does the file exist already
+
 	//Check if file exists for that day -- if it doesn't then create it 
 	Date Now = new Date( );
       	SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd");
@@ -22,15 +24,18 @@ public static void main(String [] args)
 	
 	
 	File foo = new File(NowDate + ".csv");
+	existance = foo.exists();
 
 	//init FileWriter
 	try{ 
-		FileWriter writer = new FileWriter(NowDate + ".csv");
-		System.out.println("succ");
+		FileWriter writer = new FileWriter(NowDate + ".csv", existance);
 	
 	//generate file header if the file didn't exist before
-	if(!foo.exists()){
-	generateCsvFile(writer);	
+	if(!existance){
+	 	writer.append("STUDENT OSIS");
+            	writer.append(',');
+            	writer.append("DATE: " + NowDate);
+            	writer.append('\n');
 	}
 
 
@@ -38,6 +43,8 @@ public static void main(String [] args)
 	while(osis != 0){
 	osis = ask();
 	writer.append("" + osis + "\n");
+	writer.close();
+	writer = new FileWriter(NowDate + ".csv", true);
 	}
 	writer.flush();
         writer.close();
@@ -54,29 +61,12 @@ public static void main(String [] args)
 
 //Append to CSV file
 private static long ask(){
-long temp;
-while(osis<0 || osis>=1000000000){
+long temp = -1;
+while(temp<0 || temp>=1000000000){
 System.out.println("=============================================================================================================");
 System.out.print("Please enter your OSIS: ");
 temp = Keyboard.readLong();
 }
 return temp;
 }
-   
-
-//Generates CSV file
-   private static void generateCsvFile(FileWriter s)
-   {
-	try
-	{
-	    s.append("STUDENT OSIS");
-	    s.append(',');
-	    s.append("DATE: " + NowDate);
-	    s.append('\n');
-	}
-	catch(IOException e)
-	{
-	     e.printStackTrace();
-	} 
-    }
-}
+} 
