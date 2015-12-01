@@ -30,13 +30,17 @@ public class SuperArray {
 
 		
 		//~~~~~METHODS~~~~~
-    //default constructor â€“ initializes 10-item array
-    public SuperArray() { }
+    //default constructor  initializes 10-item array
+    public SuperArray() {
+	data = new int[10];
+	 }
 
 		
     //output array in [a,b,c] format, eg
     // {1,2,3}.toString() -> "[1,2,3]"
-    public String toString() { }
+    public String toString() { 
+	for(int i: data
+	}
 
 		
     //double capacity of this SuperArray
