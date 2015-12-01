@@ -8,11 +8,16 @@ HW38--Keep Guessing
 import cs1.Keyboard;
 
 public class GuessNumber {
-private int guesses;
+private static int guesses = 1;
+
 //Tells if high or low
-public boolean teller(int target){
+public static boolean teller(int target){
 int num = 0;
-while(num >
+while(num > 100 || num < 1){
+System.out.print("Guess a number from 1-100: ");
+num = Keyboard.readInt();
+}
+
 if(target > num){
 System.out.println("Too low, try again...");
 guesses++;
@@ -21,9 +26,10 @@ return false;
 System.out.println("Too high, try again...");
 guesses++;
 return false;
-} else if(target == num){
+} else {
 System.out.println("Correct! It took " + guesses + " guesses.");
 return true;
+}
 }
 
 public static void main(String [] args){
@@ -31,7 +37,8 @@ int number = (int)(Math.random()*100) + 1;
 boolean state = false;
 
 while(!state){
+state = teller(number);
+}
+}
+}
 
-}
-}
-}
