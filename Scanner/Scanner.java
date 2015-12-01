@@ -12,6 +12,18 @@ import java.io.File;
 public class Scanner
 {
 private static String NowDate;
+
+//Add some color lol
+public static final String ANSI_RESET = "\u001B[0m";
+public static final String ANSI_BLACK = "\u001B[30m";
+public static final String ANSI_RED = "\u001B[31m";
+public static final String ANSI_GREEN = "\u001B[32m";
+public static final String ANSI_YELLOW = "\u001B[33m";
+public static final String ANSI_BLUE = "\u001B[34m";
+public static final String ANSI_PURPLE = "\u001B[35m";
+public static final String ANSI_CYAN = "\u001B[36m";
+public static final String ANSI_WHITE = "\u001B[37m";
+
    
 public static void main(String [] args)
    {
@@ -42,9 +54,11 @@ public static void main(String [] args)
 	long osis = -1;
 	while(osis != 0){
 	osis = ask();
+	if(osis!= 0){
 	writer.append("" + osis + "\n");
 	writer.close();
 	writer = new FileWriter(NowDate + ".csv", true);
+	}
 	}
 	writer.flush();
         writer.close();
@@ -63,8 +77,8 @@ public static void main(String [] args)
 private static long ask(){
 long temp = -1;
 while(temp<0 || temp>=1000000000){
-System.out.println("=============================================================================================================");
-System.out.print("Please enter your OSIS: ");
+System.out.println(ANSI_GREEN + "================================================================================================================================================" + ANSI_RESET);
+System.out.print(ANSI_BLUE + "Please enter your OSIS: " + ANSI_RESET);
 temp = Keyboard.readLong();
 }
 return temp;
