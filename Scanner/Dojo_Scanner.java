@@ -9,7 +9,7 @@ import java.util.*;
 import java.text.*;
 import java.io.File;
 
-public class Scanner
+public class Dojo_Scanner
 {
 private static String NowDate;
 
