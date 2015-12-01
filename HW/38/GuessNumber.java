@@ -12,12 +12,15 @@ private static int guesses = 1;
 
 //Tells if high or low
 public static boolean teller(int target){
+
+//enter choice
 int num = 0;
 while(num > 100 || num < 1){
 System.out.print("Guess a number from 1-100: ");
 num = Keyboard.readInt();
 }
 
+//evaluate choice
 if(target > num){
 System.out.println("Too low, try again...");
 guesses++;
@@ -35,10 +38,7 @@ return true;
 public static void main(String [] args){
 int number = (int)(Math.random()*100) + 1;
 boolean state = false;
-
-while(!state){
-state = teller(number);
-}
+while(!teller(number)){}
 }
 }
 

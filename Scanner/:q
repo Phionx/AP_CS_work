@@ -27,39 +27,47 @@ public static void main(String [] args)
 	try{ 
 		FileWriter writer = new FileWriter(NowDate + ".csv");
 		System.out.println("succ");
+        }
+        catch(IOException e)
+        {
+             e.printStackTrace();
+        }
 	
 	//generate file header if the file didn't exist before
 	if(!foo.exists()){
+	try{
 	generateCsvFile(writer);	
 	}
-
-
-	long osis = -1;
-	while(osis != 0){
-	osis = ask();
-	writer.append("" + osis + "\n");
-	}
-	writer.flush();
-        writer.close();
-	System.out.println("Thank you for using CS Dojo Scanners!");
-        }
 	catch(IOException e)
         {
              e.printStackTrace();
         }
+	}
 
-   
-}
+
+	long osis = -1;
+	try {
+		while(osis != 0){
+		osis = ask();
+		writer.append("" + osis + "\n");
+		}
+		writer.flush();
+                writer.close();
+	}
+	catch(IOException e)
+        {
+             e.printStackTrace();
+        }	
+	System.out.println("Thank you for using CS Dojo Scanners!");
+   }
 
 
 //Append to CSV file
 private static long ask(){
 long temp;
-while(osis<0 || osis>=1000000000){
 System.out.println("=============================================================================================================");
 System.out.print("Please enter your OSIS: ");
 temp = Keyboard.readLong();
-}
 return temp;
 }
    
