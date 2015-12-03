@@ -94,9 +94,7 @@ public class SuperArray {
 		_data[0] = newVal;
 	}
 	else {	
-	if(_lastPos+1==_size){
-		expand();
-	}
+	if(_lastPos+1==_size) expand();
 	_data[_lastPos + 1] = newVal;
 	_lastPos++;	
 	}
