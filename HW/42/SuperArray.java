@@ -103,7 +103,7 @@ public class SuperArray implements ListInt {
 
     //inserts an item at index
     //shifts existing elements to the right
-    public void add( int index, int newVal ) {
+    public void addAtIndex( int index, int newVal ) {
 	if(_lastPos+1==_size){
 		expand();
 	}
@@ -119,9 +119,6 @@ public class SuperArray implements ListInt {
 	_lastPos++; 
     }
 
-    public void addAtIndex(int Val, int index){
-	add(Val, index);
-    } 
 
     //removes the item at index
     //shifts elements left to fill in newly-empted slot
@@ -147,29 +144,8 @@ public class SuperArray implements ListInt {
     //main method for testing
     public static void main( String[] args ) 
     {
-	SuperArray curtis = new SuperArray();
-	System.out.println("Printing empty SuperArray curtis...");
-	System.out.println(curtis);
 
-	for( int i = 0; i < curtis._data.length; i++ ) {
-	    curtis.set(i,i*2);
-	    curtis._size++; //necessary bc no add() method yet
-	}
-
-	System.out.println("Printing populated SuperArray curtis...");
-	System.out.println(curtis);
-
-	System.out.println("testing get()...");
-	for( int i = 0; i < curtis._size; i++ ) {
-	    System.out.print( "item at index" + i + ":\t" );
-	    System.out.println( curtis.get(i) );
-	}
-
-	System.out.println("Expanded SuperArray curtis:");
-	curtis.expand();
-	System.out.println(curtis);
-
-	SuperArray mayfield = new SuperArray();
+	ListInt mayfield = new SuperArray();
 	System.out.println("Printing empty SuperArray mayfield...");
 	System.out.println(mayfield);
 
@@ -189,13 +165,13 @@ public class SuperArray implements ListInt {
 	  System.out.println("Printing SuperArray mayfield post-remove...");
 	  System.out.println(mayfield);
 
-	  mayfield.add(3,99);
+	  mayfield.addAtIndex(3,99);
 	  System.out.println("Printing SuperArray mayfield post-insert...");
 	  System.out.println(mayfield);
-	  mayfield.add(2,88);
+	  mayfield.addAtIndex(2,88);
 	  System.out.println("Printing SuperArray mayfield post-insert...");
 	  System.out.println(mayfield);
-	  mayfield.add(1,77);
+	  mayfield.addAtIndex(1,77);
 	  System.out.println("Printing SuperArray mayfield post-insert...");
 	  System.out.println(mayfield);
 	//*****INSERT ANY ADDITIONAL TEST CALLS HERE*****
