@@ -1,3 +1,10 @@
+/*
+Leith Conybeare, Shantanu Jha
+APCS1 pd5
+HW42--Array of Titanium
+2015-12-06
+*/
+
 public interface ListInt {
 
     void add( int newVal );
