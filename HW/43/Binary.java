@@ -164,6 +164,7 @@ public class Binary {
       =============================================*/
     public int compareTo( Object other ) {
 	/****** YOUR IMPLEMENTATION HURRR ******/   
+	if(!(other instanceof Binary)) throw new ClassCastException("Error the input is not Binary");
 	Binary foo = (Binary)other;
 	int a = foo._decNum;
 	int b = this._decNum;
