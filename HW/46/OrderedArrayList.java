@@ -30,20 +30,28 @@ public class OrderedArrayList {
 
 
     public String toString() { 
-	
+	String ans = "[";
+	for(Comparable i: _data){
+		ans += i + ", ";
+	}	
+	ans = ans.substring(0,ans.length()-2);
+	ans += "]";
+	return ans;
     }
 
 
     public Comparable remove( int index ) { 
-	
+	return _data.remove(index);
     }
 
 
     public int size() { 
+    	return _data.size();
     }
 
     
     public Comparable get( int index ) { 
+    	return _data.get(index);
     }
 
 
@@ -52,14 +60,19 @@ public class OrderedArrayList {
     // inserts newVal at the appropriate index
     // maintains ascending order of elements
     // uses a linear search to find appropriate index
-    public void addLinear( Comparable newVal ) { 
-
+    public void addLinear( Comparable newVal ) {
+	int index = 0; 
+	for(int i = 0; i < _data.size(); i++){
+		System.out.println("Test stuff: " + _data); 
+		if(_data.get(i).compareTo(newVal) > 0) break;
+		index++;
+	}
+	_data.add(index, newVal);
     }
 
 
     // main method solely for testing purposes
     public static void main( String[] args ) {
-	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	OrderedArrayList Franz = new OrderedArrayList();
 
@@ -71,13 +84,12 @@ public class OrderedArrayList {
 	    System.out.println( valToAdd );
 	    Franz.addLinear( valToAdd );
 	}
+	System.out.println(Franz.get(0));
 
 	System.out.println("\nafter population via addLinear() calls:");
 	System.out.println( Franz );
 	System.out.println();
 
-	   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }
 
 }//end class OrderedArrayList
- 
