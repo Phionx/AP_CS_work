@@ -63,7 +63,6 @@ public class OrderedArrayList {
     public void addLinear( Comparable newVal ) {
 	int index = 0; 
 	for(int i = 0; i < _data.size(); i++){
-		System.out.println("Test stuff: " + _data); 
 		if(_data.get(i).compareTo(newVal) > 0) break;
 		index++;
 	}

@@ -1,8 +1,8 @@
 /*
 Shantanu Jha
 APCS1 pd5
-HW46--addlater
-2015-12-10
+HW47--Halving the Halves
+2015-12-11
 */
 
 /*============================================
@@ -30,28 +30,22 @@ public class OrderedArrayList {
 
 
     public String toString() { 
-	String ans = "[";
-	for(Comparable i: _data){
-		ans += i + ", ";
-	}	
-	ans = ans.substring(0,ans.length()-2);
-	ans += "]";
-	return ans;
+	return _data.toString(); 
     }
 
 
     public Comparable remove( int index ) { 
-	return _data.remove(index);
+	return _data.remove(index); 
     }
 
 
     public int size() { 
-    	return _data.size();
+	return _data.size();
     }
 
     
     public Comparable get( int index ) { 
-    	return _data.get(index);
+	return _data.get(index); 
     }
 
 
@@ -60,33 +54,67 @@ public class OrderedArrayList {
     // inserts newVal at the appropriate index
     // maintains ascending order of elements
     // uses a linear search to find appropriate index
-    public void addLinear( Comparable newVal ) {
-	int index = 0; 
-	for(int i = 0; i < _data.size(); i++){
-		System.out.println("Test stuff: " + _data); 
-		if(_data.get(i).compareTo(newVal) > 0) {
-			index = i;
-			break;
-		} 	
+    public void addLinear( Comparable newVal ) 
+    { 
+	for( int p = 0; p < _data.size(); p++ ) {
+	    if ( newVal.compareTo( _data.get(p) ) < 0 ) { //newVal < oal[p]
+		_data.add( p, newVal );
+		return; //Q:why not break?
+	    }
 	}
-	_data.add(index, newVal);
+	_data.add( newVal ); //newVal > every item in oal, so add to end
     }
 
 
-    // main method solely for testing purposes
-    public static void main( String[] args ) {
+    // addBinary takes as input any comparable object 
+    // (i.e., any object of a class implementing interface Comparable)
+    // inserts newVal at the appropriate index
+    // maintains ascending order of elements
+    // uses a binary search to find appropriate index
+    public void addBinary( Comparable newVal ) { 
+	//initialize upperbound, lowerbound and median
+	if (_data.size() == 0) {
+		_data.add(newVal);
+		return;
+	}
+	int lo = 0;
+	int med = _data.size()/2;
+	int hi = _data.size();
+    	while(hi!=med && lo !=med){
+		if(_data.get(med).compareTo(newVal) == 0){
+			_data.add(med, newVal);
+			return;
+		} else if (_data.get(med).compareTo(newVal) > 0){
+			hi = med;
+			med = (med-lo)/2 + lo;
+		} else {
+			lo = med;
+			med = (hi - med)/2 + med;
+		}
+	}
+	if(_data.get(med).compareTo(newVal) < 0) med++;
+	_data.add(med, newVal);
+    }
 
+			
+			
+			
+
+
+    // main method solely for testing purposes
+    public static void main( String[] args ) 
+    {
 	OrderedArrayList Franz = new OrderedArrayList();
 
 	System.out.println("\nValues to add via addLinear() calls:");
 
 	// testing linear search
 	for( int i = 0; i < 15; i++ ) {
+	    System.out.println("Franz" + Franz);
 	    int valToAdd = (int)( 50 * Math.random() );
 	    System.out.println( valToAdd );
-	    Franz.addLinear( valToAdd );
+	    Franz.addBinary( valToAdd );
 	}
-	System.out.println(Franz.get(0));
 
 	System.out.println("\nafter population via addLinear() calls:");
 	System.out.println( Franz );
@@ -97,3 +125,4 @@ public class OrderedArrayList {
     }
 
 }//end class OrderedArrayList
+ 
