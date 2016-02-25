@@ -1,0 +1,19 @@
+/*
+Shantanu Jha
+APCS1 pd5
+HW4--Knightly Exploration
+2016-02-25
+*/
+
+1. Start at a random position on the chess board.
+2. Move a Knight's Distance away from the current piece
+3. 
+    a. If all the positions on the chess board have been touched, you can stop, because you've found a solution.
+    b. If all pieces that your Knight can go to from its current solution have already been visited, then that mean your Knight is "trapped"
+4. If a piece is trapped go back one instance to when that piece was not on the
+chess board and place the piece on a different position (one that hasn't been
+tried yet). If all possible positions have been tried, than back track once
+more.
+5. Otherwise place a new piece if you find a valid unused position for it.
+
+
