@@ -8,6 +8,7 @@ HW31--Fast Selection
 public class FastSelect {
     
     public static void main(String[] args){
+        
     }
 
 
